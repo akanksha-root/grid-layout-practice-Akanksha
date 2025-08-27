@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-layout-practice - Akanksha</title>
+        <style>
+               @media only screen and (max-width: 320px) 
+               {
+                 .container
+                  {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto auto auto auto auto auto auto;
+                    grid-template-areas:"nav"
+                                      "side"
+                                      "main"
+                                      "mid"
+                                      "extra"
+                                      "footer";
+                  } 
+                .slide 
+                {
+                     display: none; /*  hide slide on mobile */
+                }
+              }
+
+                @media only screen and (max-width: 765px) 
+                {
+                .container 
+                {
+                  grid-template-columns: 1fr;
+                  grid-template-rows: auto auto auto auto auto auto auto;
+                  grid-template-areas:
+                                       "nav"
+                                       "side"
+                                       "main"
+                                       "mid"
+                                       "extra"
+                                       "footer";
+               }
+
+              .slide 
+              {
+                display: none; /* Hide slide panel on tablets */
+               }
+              }
+              @media only screen and (max-width: 480px)
+               {
+                .item
+                {
+                  padding: 6px;
+                }
+              }
+
+                *{
+                  margin: 0;
+                }
+
+                body
+                 {
+                   margin: 0;
+                   overflow-y: auto; /* enables vertical scroll if needed */
+                 }
+
+               .container
+               {
+                 margin: 0;
+                 border: 2px solid;
+                 min-height: 250vh;
+                 display: grid;
+                 grid-template-columns:repeat(3,1fr) ;
+                 grid-template-rows: auto 8fr 3fr 1fr auto ;
+                 grid-template-areas: "nav nav nav "
+                                      "side main main " 
+                                      " mid mid extra"
+                                      "section section section"
+                                      "footer footer footer";
+                 gap: 10px;
+                 padding: 4px;
+                }
+
+             .item
+             {
+                  border: 2px solid;
+                  padding: 10px;
+                  font-size: 0.9rem;
+
+             }
+            .header
+              {
+                   grid-area:nav;
+                   background-color: #b07c7c;
+                   align-self: start;
+                   position: sticky;
+                   top: 0px;
+                   display: grid;
+                   place-items:center;
+               
+              }
+              
+              .Left_Sidebar 
+                {
+                   grid-area:side;
+                   background-color: #f6d3d3;
+                   display: grid;
+                   place-items:center;
+
+                }
+
+              .Main_Section
+               {
+                   grid-area:main;
+                   background-color: #f1a0a0;
+                   display: grid;
+                   place-items:center;
+
+               }
+
+              .mid_left
+              {
+                   grid-area:mid;
+                   background-color: #e77e7e;
+                   display: grid;
+                   place-items:center;
+              }
+
+              .mid_right
+              {
+                   grid-area:extra;
+                   background-color: #debdbd; 
+                   display: grid;
+                   place-items:center;
+
+               }
+              
+              .section
+              {
+                   grid-area:section;
+                   background-color: #e7c6c6; 
+                   display: grid;
+                   place-items:center;
+
+               }
+
+              .footer
+              {
+                   grid-area:footer;
+                   background-color: #9c3c3c;
+                   display: grid;
+                   place-items:center;
+
+              }
+/* Slide panel floats outside grid areas for visual overlap demo */           
+              .slide
+              {
+                  background-color: #a59595;
+                  grid-column:3;
+                  grid-row: 1/5;
+                  justify-self:end ;
+              }
+           
+    </style>
+</head>
+<body>
+    
+  <div class="container">
+
+    <header class="item header">Header Area</header>
+    <aside class="item Left_Sidebar ">Left Sidebar</aside>
+    <main class="item Main_Section">Main Section</main>
+    <section class="item  mid_left"> mid left </section>
+    <aside class="item mid_right ">mid right </aside>
+    <section class="item section">Section </section>
+    <footer class="item footer">footer</footer>
+    <aside class="item slide">slide</aside>
+       
+  </div> 
+</body>
+</html>
